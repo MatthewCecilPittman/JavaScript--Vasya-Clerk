@@ -15,6 +15,8 @@ Return YES, if Vasya can sell a ticket to every
  person and give change with the bills he has at 
 hand at that moment. Otherwise return NO.*/
 
+
+*/ This solution will pass the puliminanry test but fails 1 test */
 function tickets(peopleInLine){
 let amount25 = 0;
 let amount50 = 0;
@@ -47,3 +49,28 @@ amount25++;
 }
 return "YES";
 } 
+
+/* This solution is winner winner chicken dinner*/
+function tickets(peopleInLine){
+  var m25 = 0, m50 = 0;
+    
+    for (var i = 0; i < peopleInLine.length; i++) {
+        switch(peopleInLine[i]){
+            case 25:
+                m25++;
+                break;
+            case 50:
+                m25 > 0 ? m25-- : m25 = -1;
+                m50++;
+                break;
+            case 100:
+                m25 > 0 && m50 > 0 ? m50-- : (m25 > 2 ? m25 -= 2 : m25 = -1);
+                m25--;
+                break;
+        }
+       if(m25<0){
+          return "NO";
+       }
+    }
+    return "YES";
+}
