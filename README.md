@@ -51,10 +51,11 @@ return "YES";
 } 
 
 /* This solution is winner winner chicken dinner*/
+
+
 function tickets(peopleInLine){
   var m25 = 0, m50 = 0;
-    
-    for (var i = 0; i < peopleInLine.length; i++) {
+   for (var i = 0; i < peopleInLine.length; i++) {
         switch(peopleInLine[i]){
             case 25:
                 m25++;
